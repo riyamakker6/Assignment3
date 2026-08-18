@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Movie Ticket Booking System</title>
+</head>
+
+<body>
+
+    <h1>Online Movie Ticket Booking System</h1>
+
+    <p>Open the Browser Console to see the booking process.</p>
+
+
+    <script>
+
+        // Variable to check whether seats are available
+        let seatsAvailable = true;
+
+
+        // Creating a Promise named booking
+        const booking = new Promise(function(resolve, reject) {
+
+            // setTimeout simulates an asynchronous booking process
+            setTimeout(function() {
+
+                if (seatsAvailable) {
+                    resolve("Seats are available.");
+                } 
+                else {
+                    reject("No Seats Available.");
+                }
+
+            }, 1000);
+
+        });
+
+
+        // Promise Chaining
+
+        booking
+
+            // Step 1: Check Seat Availability
+            .then(function(result) {
+
+                console.log("1. " + result);
+
+                // Pass result to the next .then()
+                return "Payment processed successfully.";
+
+            })
+
+
+            // Step 2: Process Payment
+            .then(function(result) {
+
+                console.log("2. " + result);
+
+                // Pass result to the next .then()
+                return "Booking confirmed successfully.";
+
+            })
+
+
+            // Step 3: Confirm Booking
+            .then(function(result) {
+
+                console.log("3. " + result);
+
+                // Pass result to the next .then()
+                return "Ticket generated successfully.";
+
+            })
+
+
+            // Step 4: Generate Ticket
+            .then(function(result) {
+
+                console.log("4. " + result);
+
+            })
+
+
+            // Handle errors
+            .catch(function(error) {
+
+                console.log("Error: " + error);
+
+            });
+
+    </script>
+
+</body>
+</html>
